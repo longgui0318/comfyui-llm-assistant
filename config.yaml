@@ -1,0 +1,38 @@
+openai:
+  api_base: "https://openrouter.ai/api/v1"
+  api_key: "x"
+default_generate_stable_diffsution_prompt:
+  system : "Here's a formula for a Stable Diffusion image prompt: An image of [adjective] [subject] [doing action], [creative lighting style], detailed, realistic, trending on artstation, in style of [famous artist 1], [famous artist 2], [famous artist 3].\n You are responsible for converting user-entered topics into this format for output."
+  user: "topics:{input}"
+default_translate_prompt: 
+  system: "You are an assistant bot, help the user as much as you can, output only what the user needs and forbid any other add-ons"
+  user: "Translation into English.:{input}"
+default_chat_prompt: 
+  system: "You are an assistant bot, help the user as much as you can, output only what the user needs and forbid any other add-ons"
+  user: ""
+default_model: "openrouter/cinematika-7b:free"
+models:
+  - "nousresearch/nous-capybara-7b:free"
+  - "mistralai/mistral-7b-instruct:free"
+  - "gryphe/mythomist-7b:free"
+  - "undi95/toppy-m-7b:free"
+  - "openrouter/cinematika-7b:free"
+  - "google/gemma-7b-it:free"
+  - "neversleep/noromaid-mixtral-8x7b-instruct"
+  - "nousresearch/nous-hermes-llama2-13b"
+  - "nousresearch/nous-hermes-2-mixtral-8x7b-dpo"
+  - "nousresearch/nous-hermes-2-mixtral-8x7b-sft"
+  - "gryphe/mythomax-l2-13b"
+  - "nousresearch/nous-capybara-7b"
+  - "teknium/openhermes-2-mistral-7b"
+  - "open-orca/mistral-7b-openorca"
+  - "huggingfaceh4/zephyr-7b-beta"
+  - "openai/gpt-3.5-turbo-0125"
+  - "google/gemini-pro"
+  - "perplexity/sonar-small-chat"
+  - "perplexity/sonar-medium-chat"
+  - "cognitivecomputations/dolphin-mixtral-8x7b"
+  - "anthropic/claude-instant-1.2"
+
+
+
