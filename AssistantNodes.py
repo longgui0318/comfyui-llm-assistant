@@ -34,22 +34,32 @@ class GenerateStableDiffsutionPromptLLM:
         return {
             "required": {
                 "prompt": ("STRING", {
+                    "dynamicPrompts": False,
                     "multiline": True,
                     "default": ""
                 }),
-                "response_pattern": ("STRING", {
-                    "multiline": False,
-                    "default": None
-                }),
+
                 "template_system": ("STRING", {
+                    "dynamicPrompts": False,
                     "multiline": True,
                     "default": template_system,
                     "display": "textarea",
                 }),
                 "template_user": ("STRING", {
+                    "dynamicPrompts": False,
                     "multiline": True,
                     "default": template_user,
                     "display": "textarea"
+                }),
+                "stop": ("STRING", {
+                    "dynamicPrompts": False,
+                    "multiline": False,
+                    "default": None
+                }),
+                "response_pattern": ("STRING", {
+                    "dynamicPrompts": False,
+                    "multiline": False,
+                    "default": None
                 }),
                 "temperature": ("FLOAT", {
                     "default": 1.0,
@@ -80,7 +90,7 @@ class GenerateStableDiffsutionPromptLLM:
 
     CATEGORY = "LLM"
 
-    def generateStableDiffsutionPrompt(self, prompt, response_pattern, template_system, template_user, temperature, max_tokens, model_name):
+    def generateStableDiffsutionPrompt(self, prompt, template_system, template_user, stop, response_pattern,  temperature, max_tokens, model_name):
         config = load_config()
         openai_config = config["openai"]
         if openai_config is None:
@@ -93,7 +103,7 @@ class GenerateStableDiffsutionPromptLLM:
         if is_valid_string(template_user):
             _prompt = template_user.format(prompt)
         response = get_completion(_prompt, response_pattern, api_base, api_key, temperature, template_system,
-                                  max_tokens, model_name)
+                                  max_tokens, stop, model_name)
         return (response,)
 
 
@@ -130,22 +140,33 @@ class TranslateTextLLM:
         return {
             "required": {
                 "prompt": ("STRING", {
+                    "dynamicPrompts": False,
                     "multiline": True,
                     "default": ""
                 }),
-                "response_pattern": ("STRING", {
-                    "multiline": False,
-                    "default": None
-                }),
+
                 "template_system": ("STRING", {
+                    "dynamicPrompts": False,
                     "multiline": True,
                     "default": template_system,
                     "display": "textarea",
+
                 }),
                 "template_user": ("STRING", {
+                    "dynamicPrompts": False,
                     "multiline": True,
                     "default": template_user,
                     "display": "textarea"
+                }),
+                "stop": ("STRING", {
+                    "dynamicPrompts": False,
+                    "multiline": False,
+                    "default": None
+                }),
+                "response_pattern": ("STRING", {
+                    "dynamicPrompts": False,
+                    "multiline": False,
+                    "default": None
                 }),
                 "temperature": ("FLOAT", {
                     "default": 1.0,
@@ -176,7 +197,7 @@ class TranslateTextLLM:
 
     CATEGORY = "LLM"
 
-    def translateText(self, prompt, response_pattern, template_system, template_user, temperature, max_tokens, model_name):
+    def translateText(self, prompt, template_system, template_user, stop, response_pattern, temperature, max_tokens, model_name):
         config = load_config()
         openai_config = config["openai"]
         if openai_config is None:
@@ -189,8 +210,9 @@ class TranslateTextLLM:
         if is_valid_string(template_user):
             _prompt = template_user.format(prompt)
         response = get_completion(_prompt, response_pattern, api_base, api_key, temperature, template_system,
-                                  max_tokens, model_name)
+                                  max_tokens, stop, model_name)
         return (response,)
+
 
 class ChatWithLLM:
     def __init__(self):
@@ -225,14 +247,13 @@ class ChatWithLLM:
         return {
             "required": {
                 "prompt": ("STRING", {
+                    "dynamicPrompts": False,
                     "multiline": True,
                     "default": ""
                 }),
-                "response_pattern": ("STRING", {
-                    "multiline": False,
-                    "default": None
-                }),
+
                 "template_system": ("STRING", {
+                    "dynamicPrompts": False,
                     "multiline": True,
                     "default": template_system,
                     "display": "textarea",
@@ -240,9 +261,19 @@ class ChatWithLLM:
                     "height": 100
                 }),
                 "template_user": ("STRING", {
+                    "dynamicPrompts": False,
                     "multiline": True,
                     "default": template_user,
                     "display": "textarea"
+                }),  "stop": ("STRING", {
+                    "dynamicPrompts": False,
+                    "multiline": False,
+                    "default": None
+                }),
+                "response_pattern": ("STRING", {
+                    "dynamicPrompts": False,
+                    "multiline": False,
+                    "default": None
                 }),
                 "temperature": ("FLOAT", {
                     "default": 1.0,
@@ -273,7 +304,7 @@ class ChatWithLLM:
 
     CATEGORY = "LLM"
 
-    def chatLLM(self, prompt, response_pattern, template_system, template_user, temperature, max_tokens, model_name):
+    def chatLLM(self, prompt, template_system, template_user, stop, response_pattern,  temperature, max_tokens, model_name):
         config = load_config()
         openai_config = config["openai"]
         if openai_config is None:
@@ -286,7 +317,7 @@ class ChatWithLLM:
         if is_valid_string(template_user):
             _prompt = template_user.format(prompt)
         response = get_completion(_prompt, response_pattern, api_base, api_key, temperature, template_system,
-                                  max_tokens, model_name)
+                                  max_tokens, stop, model_name)
         return (response,)
 
 

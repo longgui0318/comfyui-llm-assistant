@@ -1,4 +1,4 @@
-from openai import OpenAI
+from openai import OpenAI,types
 import re
 import os
 import yaml
@@ -8,19 +8,22 @@ def is_valid_string(s):
     return s is not None and s.strip() != ""
 
 
-def get_completion(prompt, response_pattern, api_url, api_key, temperature, sys_prefix, max_tokens, model="local model"):
+def get_completion(prompt, response_pattern, api_url, api_key, temperature, sys_prefix, max_tokens,stop, model="local model"):
     try:
         client = OpenAI(api_key=api_key, base_url=api_url)
         messages = [{"role": "system", "content": sys_prefix},
                     {"role": "user", "content": prompt}]
-
+        if not is_valid_string(stop):
+            stop = None
         response = client.chat.completions.create(
             model=model,
             messages=messages,
             temperature=temperature,
-            max_tokens=max_tokens
+            max_tokens=max_tokens,
+            stop=stop,
         )
         response_str = response.choices[0].message.content
+        print(f"{model} \nrequest:{prompt}\nresponse:{response_str}")
         if response_pattern:
             try:
                 response_str_t = re.search(

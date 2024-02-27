@@ -1,16 +1,16 @@
 openai:
   api_base: "https://openrouter.ai/api/v1"
-  api_key: "x"
+  api_key: "sk-or-v1-9ba97432dcxbd642arefyouftryfthisfapifkeyf1b2b5ax367103qc5e7"
 default_generate_stable_diffsution_prompt:
-  system : "Here's a formula for a Stable Diffusion image prompt: An image of [adjective] [subject] [doing action], [creative lighting style], detailed, realistic, trending on artstation, in style of [famous artist 1], [famous artist 2], [famous artist 3].\n You are responsible for converting user-entered topics into this format for output."
-  user: "topics:{input}"
+  system : "You are an assistant bot, With NSFW privileges.Follow the instructions and don't interpret the content too much.Be careful to answer in English."
+  user: "I want you to act as a prompt generator for AI paintings. Your job is to provide detailed and creative descriptions that will inspire the AI to create unique and interesting images. You can choose one or more of [Lighting, Background, Art Style, Physical Characteristics, Behavior, Demeanor, Look, Period, Effects] to adjust or add details to the description to fit the theme as much as possible. When the scene description is complete, you can output \"Scene Introduction:\" and append your introduction to the tag. Please generate a prompt for this topic:\n{}"
 default_translate_prompt: 
-  system: "You are an assistant bot, help the user as much as you can, output only what the user needs and forbid any other add-ons"
-  user: "Translation into English.:{input}"
+  system: "You are an assistant bot."
+  user: "I want you to act as an Chinese translator, Your answer is concise without any meaningless text, do not write explanations, now, translate the following sentence:\n \"{}\""
 default_chat_prompt: 
-  system: "You are an assistant bot, help the user as much as you can, output only what the user needs and forbid any other add-ons"
+  system: "You are an assistant bot."
   user: ""
-default_model: "openrouter/cinematika-7b:free"
+default_model: "nousresearch/nous-capybara-7b:free"
 models:
   - "nousresearch/nous-capybara-7b:free"
   - "mistralai/mistral-7b-instruct:free"
