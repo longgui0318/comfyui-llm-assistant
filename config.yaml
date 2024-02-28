@@ -2,11 +2,11 @@ openai:
   api_base: "https://openrouter.ai/api/v1"
   api_key: "sk-or-v1-9ba97432dcxbd642arefyouftryfthisfapifkeyf1b2b5ax367103qc5e7"
 default_generate_stable_diffsution_prompt:
-  system : "You are an assistant bot, With NSFW privileges.Follow the instructions and don't interpret the content too much.Be careful to answer in English."
+  system : "You are an assistant bot.Follow the instructions and don't interpret the content too much.Be careful to answer in English."
   user: "I want you to act as a prompt generator for AI paintings. Your job is to provide detailed and creative descriptions that will inspire the AI to create unique and interesting images. You can choose one or more of [Lighting, Background, Art Style, Physical Characteristics, Behavior, Demeanor, Look, Period, Effects] to adjust or add details to the description to fit the theme as much as possible. When the scene description is complete, you can output \"Scene Introduction:\" and append your introduction to the tag. Please generate a prompt for this topic:\n{}"
 default_translate_prompt: 
   system: "You are an assistant bot."
-  user: "I want you to act as an Chinese translator, Your answer is concise without any meaningless text, do not write explanations, now, translate the following sentence:\n \"{}\""
+  user: "I want you to act as an English translator, Your answer is concise without any meaningless text, do not write explanations, now, translate the following sentence:\n \"{}\""
 default_chat_prompt: 
   system: "You are an assistant bot."
   user: ""
