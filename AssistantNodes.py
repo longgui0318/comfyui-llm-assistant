@@ -26,7 +26,6 @@ class GenerateStableDiffsutionPromptLLM:
                 models = _models
             default_model = data["default_model"]
             if default_model and len(_models) > 0:
-                # 找到default_model的index
                 default_model_index = models.index(default_model)
                 if default_model_index > 0:
                     models.pop(default_model_index)
@@ -132,7 +131,6 @@ class TranslateTextLLM:
                 models = _models
             default_model = data["default_model"]
             if default_model and len(_models) > 0:
-                # 找到default_model的index
                 default_model_index = models.index(default_model)
                 if default_model_index > 0:
                     models.pop(default_model_index)
@@ -239,7 +237,6 @@ class ChatWithLLM:
                 models = _models
             default_model = data["default_model"]
             if default_model and len(_models) > 0:
-                # 找到default_model的index
                 default_model_index = models.index(default_model)
                 if default_model_index > 0:
                     models.pop(default_model_index)
@@ -251,21 +248,19 @@ class ChatWithLLM:
                     "multiline": True,
                     "default": ""
                 }),
-
                 "template_system": ("STRING", {
                     "dynamicPrompts": False,
                     "multiline": True,
                     "default": template_system,
-                    "display": "textarea",
-                    # 增加高度设置
-                    "height": 100
+                    "display": "textarea"
                 }),
                 "template_user": ("STRING", {
                     "dynamicPrompts": False,
                     "multiline": True,
                     "default": template_user,
                     "display": "textarea"
-                }),  "stop": ("STRING", {
+                }),
+                "stop": ("STRING", {
                     "dynamicPrompts": False,
                     "multiline": False,
                     "default": None
