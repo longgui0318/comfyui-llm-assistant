@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-llm-assistant"
+description = "Nodes:Generate Stable Diffsution Prompt With LLM, Translate Text With LLM, Chat With LLM"
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["pyyaml", "openai"]
+
+[project.urls]
+Repository = "https://github.com/longgui0318/comfyui-llm-assistant"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "longgui0318"
+DisplayName = "comfyui-llm-assistant"
+Icon = ""
