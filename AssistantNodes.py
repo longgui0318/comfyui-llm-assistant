@@ -53,12 +53,12 @@ class GenerateStableDiffsutionPromptLLM:
                 "stop": ("STRING", {
                     "dynamicPrompts": False,
                     "multiline": False,
-                    "default": None
+                    "default": ""
                 }),
                 "response_pattern": ("STRING", {
                     "dynamicPrompts": False,
                     "multiline": False,
-                    "default": None
+                    "default": ""
                 }),
                 "temperature": ("FLOAT", {
                     "default": 1.0,
@@ -159,12 +159,12 @@ class TranslateTextLLM:
                 "stop": ("STRING", {
                     "dynamicPrompts": False,
                     "multiline": False,
-                    "default": None
+                    "default": ""
                 }),
                 "response_pattern": ("STRING", {
                     "dynamicPrompts": False,
                     "multiline": False,
-                    "default": None
+                    "default": ""
                 }),
                 "temperature": ("FLOAT", {
                     "default": 1.0,
@@ -263,12 +263,12 @@ class ChatWithLLM:
                 "stop": ("STRING", {
                     "dynamicPrompts": False,
                     "multiline": False,
-                    "default": None
+                    "default": ""
                 }),
                 "response_pattern": ("STRING", {
                     "dynamicPrompts": False,
                     "multiline": False,
-                    "default": None
+                    "default": ""
                 }),
                 "temperature": ("FLOAT", {
                     "default": 1.0,
